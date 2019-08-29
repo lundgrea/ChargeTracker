@@ -1,0 +1,37 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+
+
+body {
+  height: 100vh;
+  width: 100%;
+  margin: 0;
+  /* display: grid; */
+  /* grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: 
+    "nav nav nav"
+    "sidebar main main"; */
+}
+
+button:hover {
+  background-color: yellow;
+}
+
+header{
+  grid-area: nav;
+}
+
+form {
+  grid-area: sidebar;
+}
+
+main {
+  padding: 20px;
+  background-color: #EAEAF4;
+  display: grid;
+  grid-area: main;
+  grid-gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+}
