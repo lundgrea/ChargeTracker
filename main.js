@@ -26,7 +26,7 @@ function saveCharge() {
     id: Date.now(),
     place: placeInput.value,
     charge: chargeInput.value,
-    star: false 
+    urgent: false 
   })
   charges.push(newCharge);
   appendCard(newCharge)
@@ -35,8 +35,15 @@ function saveCharge() {
   return newCharge
 }
 
-function appendCard() {
-  
+function appendCard(charge) {
+  prompt.classList.add('hidden');
+  main.insertAdjacentHTML('afterbegin', 
+  `<article id="card" class="card">
+    <img class="card__button-delete" src="https://image.flaticon.com/icons/svg/61/61795.svg" alt="delete button"/>
+    <img class="card__button-favorite" src="https://image.flaticon.com/icons/svg/64/64005.svg" alt="star button"/>
+    <h3>${charge.place}</h3>
+    <h4>${charge.charge}</h4>
+  </article>`)
 }
 
 function clearInputs() {
@@ -45,9 +52,43 @@ function clearInputs() {
   enableSubmitButton();
 }
 
-function clickHandler() {
+function clickHandler(event) {
+  deleteCard(event);
+  updateUrgency(event);
+}
+
+// function deleteCard() {
+//   if (event.target.closest('.card__button-delete')) {
+//     var chargeID = getID(event);
+//     // var cardIndex = getCardIndex(cardId);
+//     // event.target.closest('.card').remove();
+//     // ideas[cardIndex].deleteFromStorage(cardIndex);
+//     // reappearPrompt();
+//   }
+// }
+
+function deleteCard() {
+  if (event.target.closest('.card__button-delete')) {
+  event.target.closest('.card').remove();
+  event.preventDefault();
+  prompt.classList.remove('hidden');
 
 }
+}
+
+// function getID(event) {
+//   console.log(event.target.closest('.card').getAttribute('id'))
+// }
+
+// function getIndex(id){
+
+// }
+
+function updateUrgency() {
+
+}
+
+
 
 function mapLocalStorage(listOfCharges) {
   console.log(listOfCharges)

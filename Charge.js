@@ -3,6 +3,7 @@ class Charge {
     this.id = obj.id
     this.place = obj.place,
     this.charge = obj.charge,
-    this.star = obj.star
+    this.urgent = obj.urgent
   }
+
 }
