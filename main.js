@@ -12,6 +12,7 @@ submitButton.addEventListener('click', saveCharge)
 mainContent.addEventListener('click', clickHandler)
 window.addEventListener('load', mapLocalStorage(charges))
 
+
 function enableSubmitButton() {
   if (placeInput.value !== '' && chargeInput.value !== '') {
     submitButton.disabled = false;
@@ -68,5 +69,8 @@ function deleteCard() {
 
 
 function mapLocalStorage(listOfCharges) {
-  console.log(listOfCharges)
+  return listOfCharges.map(obj => {
+    const retreivedCharge = new Charge(obj)
+    appendCard(retreivedCharge)
+  })
 }
