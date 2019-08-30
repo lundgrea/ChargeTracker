@@ -12,14 +12,14 @@ body {
 }
 
 h1{
-  color: #E9F1F2;
-  margin: 50px 25px 50px 50px;
+  color: #87C232;
+  margin: 70px 25px 50px 50px;
   font-size: 60px;
 }
 
 .logo__subhead{
-  margin-top: 75px;
-  color: #3A506B
+  margin-top: 95px;
+  color: lightgray;
 }
 
 .logo{
@@ -28,22 +28,22 @@ h1{
 }
 
 button:hover {
-  background-color: yellow;
+  background-color: #87C232;
 }
 
 header{
   display: flex;
   justify-content: space-between;
-  background-color:#679289
+  background-color:#464A4E;
 }
 
 form {
   float: right;
-  border: 2px solid #3A506B;
+  border: 2px solid lightgray;
   border-radius: 2px;
   height: 100%;
   width: 33%;
-  color: #3A506B;
+  color: lightgray;
   margin: 35px 35px 35px 35px;
   text-align: center;
 }
@@ -58,18 +58,24 @@ input{
   width: 80%;
   margin: 5px 5px 5px 5px;
 }
+
 main {
   padding: 20px;
-  background-color: #F4C095;
+  background-color: #22272A;
   display: grid;
   grid-gap: 20px;
   grid-template-columns: repeat(3, 1fr);
+  height: 100vh;
+  color: lightgrey;
 }
 
 .card{
   border-radius: 2px;
   border: 2px solid black;
   text-align: center;
+  max-height: 100px;
+  background-color: lightgrey;
+  color: #6A6E71
 }
 
 img{
@@ -82,7 +88,7 @@ img{
   margin: 10px 10px 10px 10px;
 }
 
-.card__button-favorite{
+.card__button-urgency{
   float: left;
   margin: 10px 10px 10px 10px;
 
