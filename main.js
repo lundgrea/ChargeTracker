@@ -40,8 +40,8 @@ function appendCard(charge) {
   prompt.classList.add('hidden');
   main.insertAdjacentHTML('afterbegin', 
   `<article data-id=${charge.id} id="card" class="card">
-    <img class="card__button-delete" src="https://image.flaticon.com/icons/svg/61/61795.svg" alt="delete button"/>
-    <img class="card__button-urgency" src="https://image.flaticon.com/icons/svg/64/64005.svg" alt="star button"/>
+    <img class="card__button card__button-delete" src="https://image.flaticon.com/icons/svg/61/61795.svg" alt="delete button"/>
+    <img class="card__button card__button-urgency" src="https://image.flaticon.com/icons/svg/64/64005.svg" alt="star button"/>
     <h3>${charge.place}</h3>
     <h4>${charge.charge}</h4>
   </article>`)

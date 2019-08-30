@@ -11,18 +11,18 @@ body {
   color: #071E22
 }
 
-h1{
+h1 {
   color: #87C232;
   margin: 95px 25px 50px 50px;
   font-size: 60px;
 }
 
-.logo__subhead{
+.logo__subhead {
   margin-top: 118px;
   color: lightgray;
 }
 
-.logo{
+.logo {
   text-align: center;
   display: flex;
 }
@@ -31,7 +31,15 @@ button:hover {
   background-color: #87C232;
 }
 
-header{
+button{
+  background-color: #61892F
+}
+
+button:disabled {
+  background-color: grey;
+}
+
+header {
   display: flex;
   justify-content: space-between;
   background-color:#464A4E;
@@ -48,18 +56,17 @@ form {
   text-align: center;
 }
 
-.form__header{
+.form__header {
   text-align: center;
   margin: 2px 2px 2px 2px;
 }
 
-input{
+input {
   height: 40px;
   width: 80%;
   margin: 5px 5px 5px 5px;
   font-size: 16px;
   padding: 10px;
-
 }
 
 ::placeholder {
@@ -67,12 +74,11 @@ input{
   padding: 10px;
 }
 
-.form__button-submit{
-width: 80%;
-height: 40px;
-margin: 5px 10px 10px 10px;
-font-size: 16px;
-/* padding: 10px; */
+.form__button-submit {
+  width: 80%;
+  height: 40px;
+  margin: 5px 10px 10px 10px;
+  font-size: 16px;
 }
 
 main {
@@ -85,7 +91,7 @@ main {
   color: lightgrey;
 }
 
-.card{
+.card {
   border-radius: 2px;
   border: 2px solid black;
   text-align: center;
@@ -94,22 +100,26 @@ main {
   color: #6A6E71
 }
 
-img{
+img {
   width: 35px;
   height: 35px;
 }
 
-.card__button-delete{
+.card__button-delete {
   float: right;
   margin: 10px 10px 10px 10px;
 }
 
-.card__button-urgency{
+.card__button-urgency {
   float: left;
   margin: 10px 10px 10px 10px;
+}
+
+.card__button:hover{
+  filter: invert(0.5) sepia(1);
 
 }
 
-.hidden{
+.hidden {
   display: none;
 }
