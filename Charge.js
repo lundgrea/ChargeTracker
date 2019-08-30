@@ -1,9 +1,9 @@
 class Charge {
   constructor(obj) {
-    this.id = obj.id
-    this.place = obj.place,
-    this.charge = obj.charge,
-    this.urgent = obj.urgent
+    this.id = obj.id;
+    this.place = obj.place;
+    this.charge = obj.charge;
+    this.urgent = obj.urgent || false;
   }
 
   saveToStorage(newCharges) {
@@ -14,5 +14,9 @@ class Charge {
   deleteFromLocalStorage(index) {
     charges.splice(index, 1);
     this.saveToStorage(charges);
+  }
+
+  updateUrgencyStorage() {
+    this.urgent = !this.urgent
   }
 }

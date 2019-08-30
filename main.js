@@ -1,16 +1,16 @@
-const placeInput = document.getElementById('form__input-place')
-const chargeInput = document.getElementById('form__input-total')
-const submitButton = document.getElementById('form__button-submit')
-var mainContent = document.getElementById('main')
-var prompt = document.getElementById('main__prompt')
-var card = document.querySelector('card')
+const placeInput = document.getElementById('form__input-place');
+const chargeInput = document.getElementById('form__input-total');
+const submitButton = document.getElementById('form__button-submit');
+var mainContent = document.getElementById('main');
+var prompt = document.getElementById('main__prompt');
+var card = document.querySelector('card');
 var charges = JSON.parse(localStorage.getItem('charges')) || []
 
-placeInput.addEventListener('keyup', enableSubmitButton)
-chargeInput.addEventListener('keyup', enableSubmitButton)
-submitButton.addEventListener('click', saveCharge)
-mainContent.addEventListener('click', clickHandler)
-window.addEventListener('load', mapLocalStorage(charges))
+placeInput.addEventListener('keyup', enableSubmitButton);
+chargeInput.addEventListener('keyup', enableSubmitButton);
+submitButton.addEventListener('click', saveCharge);
+mainContent.addEventListener('click', clickHandler);
+window.addEventListener('load', mapLocalStorage(charges));
 
 
 function enableSubmitButton() {
@@ -30,21 +30,21 @@ function saveCharge() {
     urgent: false 
   })
   charges.push(newCharge);
-  appendCard(newCharge)
-  newCharge.saveToStorage(charges)
-  clearInputs()
-  return newCharge
+  appendCard(newCharge);
+  newCharge.saveToStorage(charges);
+  clearInputs();
+  return newCharge;
 }
 
 function appendCard(charge) {
   prompt.classList.add('hidden');
-  main.insertAdjacentHTML('afterbegin', 
+  var chargeUrgency = charge.urgent ? "https://image.flaticon.com/icons/svg/149/149222.svg": "https://image.flaticon.com/icons/svg/64/64005.svg";  main.insertAdjacentHTML('afterbegin', 
   `<article data-id=${charge.id} id="card" class="card">
     <img class="card__button card__button-delete" src="https://image.flaticon.com/icons/svg/61/61795.svg" alt="delete button"/>
-    <img class="card__button card__button-urgency" src="https://image.flaticon.com/icons/svg/64/64005.svg" alt="star button"/>
+    <img class="card__button card__button-urgency" src="${chargeUrgency}" alt="urgency button"/>
     <h3>${charge.place}</h3>
-    <h4>${charge.charge}</h4>
-  </article>`)
+    <h4>$${charge.charge}</h4>
+  </article>`);
 }
 
 function clearInputs() {
@@ -58,16 +58,14 @@ function clickHandler(event) {
   // updateUrgency(event);
 }
 
-
 function deleteCard() {
   if (event.target.closest('.card__button-delete')) {
-    const targetCard = event.target.closest('.card')
-    const targetedCardID = targetCard.dataset.id
-    const targetedCardIndex = charges.findIndex(charge => charge.id == targetedCardID)
-    const selectCard = charges.find(charge => charge.id == targetedCardID)
-    const chargeObject = new Charge(selectCard)
-    chargeObject.deleteFromLocalStorage(targetedCardIndex)
-    targetCard.remove()
+    const targetCard = event.target.closest('.card');
+    const targetedCardID = targetCard.dataset.id;
+    const targetedCardIndex = charges.findIndex(charge => charge.id == targetedCardID);
+    const selectCard = charges.find(charge => charge.id == targetedCardID);
+    selectCard.deleteFromLocalStorage(targetedCardIndex)
+    targetCard.remove();
     event.preventDefault();
     if(charges.length === 0) {
       prompt.classList.remove('hidden');
@@ -75,10 +73,31 @@ function deleteCard() {
   }
 }
 
+function reinstantiateCharges() {
+
+}
+
+// function updateUrgency() {
+//   if (event.target.closest('.card__button-urgency')) {
+//     const targetCard = event.target.closest('.card');
+//     const targetedCardID = targetCard.dataset.id;
+//     const targetedCardIndex = charges.findIndex(charge => charge.id == targetedCardID);
+//     console.log(charges[targetedCardIndex])
+//     const selectCard = charges.find(charge => charge.id == targetedCardID)
+//     // selectCard.urgent = !selectCard.urgent;
+//     const chargeObject = new Charge(selectCard);
+//     chargeObject.updateUrgencyStorage(selectCard.urgent);
+//   }
+// }
+
+
 
 function mapLocalStorage(listOfCharges) {
-  return listOfCharges.map(obj => {
-    const retreivedCharge = new Charge(obj)
-    appendCard(retreivedCharge)
+  let newList = listOfCharges.map(obj => {
+    const retreivedCharge = new Charge(obj);
+    appendCard(retreivedCharge);
+    return retreivedCharge
   })
+  charges = newList
+  return charges
 }
