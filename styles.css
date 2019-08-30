@@ -8,11 +8,23 @@ body {
   height: 100vh;
   width: 100%;
   margin: 0;
-  /* display: grid; */
-  /* grid-template-columns: repeat(3, 1fr);
-  grid-template-areas: 
-    "nav nav nav"
-    "sidebar main main"; */
+  color: #071E22
+}
+
+h1{
+  color: #E9F1F2;
+  margin: 50px 25px 50px 50px;
+  font-size: 60px;
+}
+
+.logo__subhead{
+  margin-top: 75px;
+  color: #3A506B
+}
+
+.logo{
+  text-align: center;
+  display: flex;
 }
 
 button:hover {
@@ -20,18 +32,42 @@ button:hover {
 }
 
 header{
-  grid-area: nav;
+  display: flex;
+  justify-content: space-between;
+  background-color:#679289
 }
 
 form {
-  grid-area: sidebar;
+  float: right;
+  border: 2px solid #3A506B;
+  border-radius: 2px;
+  height: 100%;
+  width: 33%;
+  color: #3A506B;
+  margin: 35px 35px 35px 35px;
+  text-align: center;
 }
 
+.form__header{
+  text-align: center;
+  margin: 2px 2px 2px 2px;
+}
+
+input{
+  height: 40px;
+  width: 80%;
+  margin: 5px 5px 5px 5px;
+}
 main {
   padding: 20px;
-  background-color: #EAEAF4;
+  background-color: #F4C095;
   display: grid;
-  grid-area: main;
   grid-gap: 20px;
   grid-template-columns: repeat(3, 1fr);
+}
+
+.card{
+  border-radius: 2px;
+  border: 2px solid black;
+  text-align: center;
 }
