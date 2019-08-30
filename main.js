@@ -38,10 +38,14 @@ function saveCharge() {
 
 function appendCard(charge) {
   prompt.classList.add('hidden');
-  var chargeUrgency = charge.urgent ? "https://image.flaticon.com/icons/svg/149/149222.svg": "https://image.flaticon.com/icons/svg/64/64005.svg";  main.insertAdjacentHTML('afterbegin', 
-  `<article data-id=${charge.id} id="card" class="card">
+  const urgent = "https://image.flaticon.com/icons/svg/64/64005.svg"
+  const nonUrgent = "https://image.flaticon.com/icons/svg/149/149222.svg"
+  const urgencyLink = charge.urgent ? urgent : nonUrgent
+  const urgencyClass  = charge.urgent ? "urgent" : "card"
+  main.insertAdjacentHTML('afterbegin', 
+  `<article data-id=${charge.id} id="card" class="card ${urgencyClass}">
     <img class="card__button card__button-delete" src="https://image.flaticon.com/icons/svg/61/61795.svg" alt="delete button"/>
-    <img class="card__button card__button-urgency" src="${chargeUrgency}" alt="urgency button"/>
+    <img class="card__button card__button-urgency" src="${urgencyLink}" alt="urgency button"/>
     <h3>${charge.place}</h3>
     <h4>$${charge.charge}</h4>
   </article>`);
@@ -55,7 +59,7 @@ function clearInputs() {
 
 function clickHandler(event) {
   deleteCard(event);
-  // updateUrgency(event);
+  updateUrgency(event);
 }
 
 function deleteCard() {
@@ -73,24 +77,17 @@ function deleteCard() {
   }
 }
 
-function reinstantiateCharges() {
-
+function updateUrgency() {
+  if (event.target.closest('.card__button-urgency')) {
+    const targetCard = event.target.closest('.card');
+    const targetedCardID = targetCard.dataset.id;
+    const targetedCardIndex = charges.findIndex(charge => charge.id == targetedCardID);
+    const selectCard = charges.find(charge => charge.id == targetedCardID);
+    selectCard.updateUrgencyStorage(targetedCardIndex)
+    mainContent.innerHTML = '';
+    mapLocalStorage(charges)
+  }      
 }
-
-// function updateUrgency() {
-//   if (event.target.closest('.card__button-urgency')) {
-//     const targetCard = event.target.closest('.card');
-//     const targetedCardID = targetCard.dataset.id;
-//     const targetedCardIndex = charges.findIndex(charge => charge.id == targetedCardID);
-//     console.log(charges[targetedCardIndex])
-//     const selectCard = charges.find(charge => charge.id == targetedCardID)
-//     // selectCard.urgent = !selectCard.urgent;
-//     const chargeObject = new Charge(selectCard);
-//     chargeObject.updateUrgencyStorage(selectCard.urgent);
-//   }
-// }
-
-
 
 function mapLocalStorage(listOfCharges) {
   let newList = listOfCharges.map(obj => {

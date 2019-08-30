@@ -16,7 +16,8 @@ class Charge {
     this.saveToStorage(charges);
   }
 
-  updateUrgencyStorage() {
-    this.urgent = !this.urgent
+  updateUrgencyStorage(index) {
+    charges[index].urgent = !charges[index].urgent
+    this.saveToStorage(charges)
   }
 }

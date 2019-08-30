@@ -112,6 +112,10 @@ h3 {
   color: #6A6E71
 }
 
+.urgent {
+  border: 4px solid #87C232;
+}
+
 img {
   width: 35px;
   height: 35px;
