@@ -39,7 +39,7 @@ function saveCharge() {
 function appendCard(charge) {
   prompt.classList.add('hidden');
   main.insertAdjacentHTML('afterbegin', 
-  `<article id="card" class="card">
+  `<article data-id=${charge.id} id="card" class="card">
     <img class="card__button-delete" src="https://image.flaticon.com/icons/svg/61/61795.svg" alt="delete button"/>
     <img class="card__button-urgency" src="https://image.flaticon.com/icons/svg/64/64005.svg" alt="star button"/>
     <h3>${charge.place}</h3>
@@ -61,7 +61,13 @@ function clickHandler(event) {
 
 function deleteCard() {
   if (event.target.closest('.card__button-delete')) {
-    event.target.closest('.card').remove();
+    const targetCard = event.target.closest('.card')
+    const targetedCardID = targetCard.dataset.id
+    const targetedCardIndex = charges.findIndex(charge => charge.id == targetedCardID)
+    const selectCard = charges.find(charge => charge.id == targetedCardID)
+    const chargeObject = new Charge(selectCard)
+    chargeObject.deleteFromLocalStorage(targetedCardIndex)
+    targetCard.remove()
     event.preventDefault();
     if(charges.length === 0) {
       prompt.classList.remove('hidden');

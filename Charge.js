@@ -10,4 +10,9 @@ class Charge {
     var allCharges = JSON.stringify(newCharges);
     localStorage.setItem('charges', allCharges);
   }
+
+  deleteFromLocalStorage(index) {
+    charges.splice(index, 1);
+    this.saveToStorage(charges);
+  }
 }

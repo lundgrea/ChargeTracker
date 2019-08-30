@@ -13,12 +13,12 @@ body {
 
 h1{
   color: #87C232;
-  margin: 100px 25px 50px 50px;
+  margin: 95px 25px 50px 50px;
   font-size: 60px;
 }
 
 .logo__subhead{
-  margin-top: 125px;
+  margin-top: 118px;
   color: lightgray;
 }
 
@@ -57,10 +57,13 @@ input{
   height: 40px;
   width: 80%;
   margin: 5px 5px 5px 5px;
+  font-size: 16px;
+  padding: 10px;
+
 }
 
 ::placeholder {
-  font-size: 1.5em;
+  font-size: 16px;
   padding: 10px;
 }
 
@@ -68,7 +71,8 @@ input{
 width: 80%;
 height: 40px;
 margin: 5px 10px 10px 10px;
-font-size: 1.5em;
+font-size: 16px;
+/* padding: 10px; */
 }
 
 main {
