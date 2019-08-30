@@ -22,6 +22,10 @@ h1 {
   color: lightgray;
 }
 
+.logo__span {
+  color: #61892F
+}
+
 .logo {
   text-align: center;
   display: flex;
