@@ -71,3 +71,19 @@ main {
   border: 2px solid black;
   text-align: center;
 }
+
+img{
+  width: 35px;
+  height: 35px;
+}
+
+.card__button-delete{
+  float: right;
+  margin: 10px 10px 10px 10px;
+}
+
+.card__button-favorite{
+  float: left;
+  margin: 10px 10px 10px 10px;
+
+}
