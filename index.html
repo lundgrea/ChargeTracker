@@ -2,34 +2,41 @@
 <html>
   <head>
     <title>IdeaBox Redux</title>
+    <link rel="normalize-stylesheet" type="text/css" href="normalize.css">
     <link rel="stylesheet" type="text/css" href="styles.css">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css?family=Dosis:400,800&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
     <header>
-      <h1>CHARGE TRACKER</h1> 
-    </header>
-    <nav>
+      <article class="logo">
+        <h1>charge tracker</h1> 
+        <h2 class="logo__subhead">your digital wallet</h2>
+      </article>
       <form>
-        <input
+        <h2 class="form__header">Add A New Charge</h2>
+        <div>
+        <input 
         type="text"
         placeholder="charge location"
         title="place"
         id="form__input-place"
         />
-        <input
+        <input 
         type="text"
         placeholder="charge total"
         title="total"
         id="form__input-total"
         />
-        <button class="form__button-submit">SUBMIT CHARGE</button>
+      </div>
+        <button disabled id="form__button-submit" class="form__button-submit">SUBMIT</button>
       </form>
-    </nav>
-    <main>
+    </header>
+    <main id="main">
+      <h2 id="main__prompt">Enter Charges Above</h2>
     </main>
   </body>
-    <script type="text/javascript" src="ticket.js"></script>
+    <script type="text/javascript" src="Charge.js"></script>
     <script type="text/javascript" src="main.js"></script>
 </html>

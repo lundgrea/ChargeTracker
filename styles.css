@@ -1,0 +1,99 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+
+
+body {
+  height: 100vh;
+  width: 100%;
+  margin: 0;
+  color: #071E22
+}
+
+h1{
+  color: #87C232;
+  margin: 70px 25px 50px 50px;
+  font-size: 60px;
+}
+
+.logo__subhead{
+  margin-top: 95px;
+  color: lightgray;
+}
+
+.logo{
+  text-align: center;
+  display: flex;
+}
+
+button:hover {
+  background-color: #87C232;
+}
+
+header{
+  display: flex;
+  justify-content: space-between;
+  background-color:#464A4E;
+}
+
+form {
+  float: right;
+  border: 2px solid lightgray;
+  border-radius: 2px;
+  height: 100%;
+  width: 33%;
+  color: lightgray;
+  margin: 35px 35px 35px 35px;
+  text-align: center;
+}
+
+.form__header{
+  text-align: center;
+  margin: 2px 2px 2px 2px;
+}
+
+input{
+  height: 40px;
+  width: 80%;
+  margin: 5px 5px 5px 5px;
+}
+
+main {
+  padding: 20px;
+  background-color: #22272A;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  height: 100vh;
+  color: lightgrey;
+}
+
+.card{
+  border-radius: 2px;
+  border: 2px solid black;
+  text-align: center;
+  max-height: 100px;
+  background-color: lightgrey;
+  color: #6A6E71
+}
+
+img{
+  width: 35px;
+  height: 35px;
+}
+
+.card__button-delete{
+  float: right;
+  margin: 10px 10px 10px 10px;
+}
+
+.card__button-urgency{
+  float: left;
+  margin: 10px 10px 10px 10px;
+
+}
+
+.hidden{
+  display: none;
+}
