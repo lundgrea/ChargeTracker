@@ -63,7 +63,9 @@ function deleteCard() {
   if (event.target.closest('.card__button-delete')) {
     event.target.closest('.card').remove();
     event.preventDefault();
-    prompt.classList.remove('hidden');
+    if(charges.length === 0) {
+      prompt.classList.remove('hidden');
+    }
   }
 }
 
